@@ -6,7 +6,7 @@
 /*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:04:46 by jkollner          #+#    #+#             */
-/*   Updated: 2023/09/18 13:11:54 by jkollner         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:13:49 by jkollner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int Fixed::getRawBits ( void ) const {
 
 float Fixed::toFloat( void ) const{
 	// fixed-pointer value to float
-	return ((float)this->fpn_value / (1 << this->fractional_bits));
+	return (roundf((float)this->fpn_value) / (1 << this->fractional_bits));
 }
 
 int Fixed::toInt( void ) const {
