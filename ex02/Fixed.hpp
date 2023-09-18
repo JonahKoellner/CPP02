@@ -6,7 +6,7 @@
 /*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:58:26 by jkollner          #+#    #+#             */
-/*   Updated: 2023/09/18 13:31:59 by jkollner         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:35:47 by jkollner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class Fixed{
 	public:
 		Fixed(); // default constructor
 		Fixed( const int val ); // constructor overload with parameter
-		Fixed( const float va ); // constructor oeload wiht parameter
-		~Fixed(); // desturctor
+		Fixed( const float va ); // constructor oveload with parameter
+		~Fixed(); // destructor
 		Fixed( const Fixed &fix ); // copy constructor
 		Fixed& operator= (const Fixed &fix); // copy assingment overload
 		Fixed& operator> ( const Fixed &fix );
@@ -40,8 +40,8 @@ class Fixed{
 		Fixed& operator++ ( void ); // pre increment
 		Fixed& operator-- ( int ); // post decrement
 		Fixed& operator-- ( void ); // pre increment
-		int getRawBits( void ) const; // member function
-		void setRawBits ( int const raw ); // member function
+		int getRawBits( void ) const;
+		void setRawBits ( int const raw );
 		float toFloat( void ) const;
 		int toInt( void ) const;
 		static Fixed& min( Fixed& first, Fixed& second );
