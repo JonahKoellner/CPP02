@@ -6,7 +6,7 @@
 /*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 10:04:46 by jkollner          #+#    #+#             */
-/*   Updated: 2023/09/18 12:49:33 by jkollner         ###   ########.fr       */
+/*   Updated: 2023/09/18 13:11:54 by jkollner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ Fixed::Fixed( const int val ) {
 	std::cout << "Int Constructor called" << std::endl;
 	// It converts it to the corresponding fixed-point value.
 	// The fractional bits value is initialized to 8 like in exercise 00.
-	this->fpn_value = (int)val;
+	this->fpn_value = val << this->fractional_bits;
 }
 
 Fixed::Fixed( const float val ) {
 	std::cout << "Float Constructor called" << std::endl;
 	// It converts it to the corresponding fixed-point value.
 	// The fractional bits value is initialized to 8 like in exercise 00.
-	this->fpn_value = (int)val;
+	this->fpn_value = roundf(val * (1 << this->fractional_bits));
 }
 
 Fixed& Fixed::operator= ( const Fixed &fix ){
@@ -54,12 +54,12 @@ int Fixed::getRawBits ( void ) const {
 
 float Fixed::toFloat( void ) const{
 	// fixed-pointer value to float
-	return ((float)0.0);
+	return ((float)this->fpn_value / (1 << this->fractional_bits));
 }
 
 int Fixed::toInt( void ) const {
 	// fixed-point value to integer
-	return (0);
+	return (this->fpn_value >> this->fractional_bits);
 }
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fix) {
