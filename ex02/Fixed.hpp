@@ -6,7 +6,7 @@
 /*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 09:58:26 by jkollner          #+#    #+#             */
-/*   Updated: 2023/09/18 13:35:47 by jkollner         ###   ########.fr       */
+/*   Updated: 2023/09/20 11:13:30 by jkollner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ class Fixed{
 		~Fixed(); // destructor
 		Fixed( const Fixed &fix ); // copy constructor
 		Fixed& operator= (const Fixed &fix); // copy assingment overload
-		Fixed& operator> ( const Fixed &fix );
-		Fixed& operator< ( const Fixed &fix );
-		Fixed& operator>= ( const Fixed &fix );
-		Fixed& operator<= ( const Fixed &fix );
-		Fixed& operator== ( const Fixed &fix );
-		Fixed& operator!= ( const Fixed &fix );
-		Fixed& operator* ( const Fixed &fix );
-		Fixed& operator+ ( const Fixed &fix );
-		Fixed& operator- ( const Fixed &fix );
-		Fixed& operator/ ( const Fixed &fix );
-		Fixed& operator++ ( int ); //post increment
+		bool operator> ( const Fixed &fix );
+		bool operator< ( const Fixed &fix );
+		bool operator>= ( const Fixed &fix );
+		bool operator<= ( const Fixed &fix );
+		bool operator== ( const Fixed &fix );
+		bool operator!= ( const Fixed &fix );
+		Fixed operator* ( const Fixed &fix );
+		Fixed operator/ ( const Fixed &fix );
+		Fixed operator+ ( const Fixed &fix );
+		Fixed operator- ( const Fixed &fix );
+		Fixed operator++ ( int ); //post increment
 		Fixed& operator++ ( void ); // pre increment
-		Fixed& operator-- ( int ); // post decrement
+		Fixed operator-- ( int ); // post decrement
 		Fixed& operator-- ( void ); // pre increment
 		int getRawBits( void ) const;
 		void setRawBits ( int const raw );
@@ -47,7 +47,7 @@ class Fixed{
 		static Fixed& min( Fixed& first, Fixed& second );
 		static Fixed& min( const Fixed& first, const Fixed& second );
 		static Fixed& max( Fixed& first, Fixed& second );
-		static Fixed& max( Fixed& first, Fixed& second );
+		static Fixed& max( const Fixed& first, const Fixed& second );
 };
 
 std::ostream& operator<<(std::ostream &out, const Fixed &fix);
