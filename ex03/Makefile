@@ -6,14 +6,14 @@
 #    By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 13:05:24 by jkollner          #+#    #+#              #
-#    Updated: 2023/09/18 10:28:30 by jkollner         ###   ########.fr        #
+#    Updated: 2023/09/20 13:46:04 by jkollner         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-name = fixed
+name = bsp
 cc = c++
 cflags = -Wall -Werror -Wextra -std=c++98
-src = main.cpp Fixed.cpp
+src = main.cpp Fixed.cpp Point.cpp bsp.cpp
 obj = ${src:.cpp=.o}
 
 all: ${name}

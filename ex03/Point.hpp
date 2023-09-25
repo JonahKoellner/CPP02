@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 10:17:42 by jkollner          #+#    #+#             */
-/*   Updated: 2023/09/20 13:54:41 by jkollner         ###   ########.fr       */
+/*   Created: 2023/09/20 13:03:57 by jkollner          #+#    #+#             */
+/*   Updated: 2023/09/20 13:37:19 by jkollner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#pragma once
 
-int main( void ) {
-	Point a(0, 0);
-	Point b(10, 30);
-	Point c(20, 0);
+#include "Fixed.hpp"
 
-	Point inside(10, 15);
-	Point outside(4, 4);
-
-	std::cout << bsp(a, b, c, inside) << std::endl;
-	std::cout << bsp(a, b, c, outside) << std::endl;
-}
+class Point{
+	private:
+		const Fixed x;
+		const Fixed y;
+	public:
+		Point();
+		Point( float const fx, float const fy );
+		Point( Point const &point );
+		~Point();
+		Point& operator= ( Point const &point );
+		Fixed getX() const;
+		Fixed getY() const;
+};

@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 10:17:42 by jkollner          #+#    #+#             */
-/*   Updated: 2023/09/20 13:54:41 by jkollner         ###   ########.fr       */
+/*   Created: 2023/09/20 13:04:40 by jkollner          #+#    #+#             */
+/*   Updated: 2023/09/20 14:38:16 by jkollner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "Point.hpp"
 
-int main( void ) {
-	Point a(0, 0);
-	Point b(10, 30);
-	Point c(20, 0);
+Fixed area(Point const a, Point const b, Point const c){
+	return (Fixed((a.getX() * (b.getY() - c.getY()) + b.getX() * (c.getY() - a.getY()) + c.getX() * (a.getY() - b.getY()) / Fixed(2.0f))));
+}
 
-	Point inside(10, 15);
-	Point outside(4, 4);
+bool bsp(Point const a, Point const b, Point const c, Point const point){
 
-	std::cout << bsp(a, b, c, inside) << std::endl;
-	std::cout << bsp(a, b, c, outside) << std::endl;
 }
