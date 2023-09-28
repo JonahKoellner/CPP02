@@ -6,7 +6,7 @@
 /*   By: jkollner <jkollner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 13:04:18 by jkollner          #+#    #+#             */
-/*   Updated: 2023/09/20 13:45:02 by jkollner         ###   ########.fr       */
+/*   Updated: 2023/09/28 12:47:48 by jkollner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ Point::Point( Point const &point ){
 }
 
 Point::~Point(){
-	std::cout << "Destructor called" << std::endl;
+	//std::cout << "Destructor called" << std::endl;
 }
 
 Point& Point::operator= ( Point const &point ){
-	((Fixed)x) = point.x;
-	((Fixed)y) = point.y;
+	const_cast<Fixed&>(x) = point.getX();
+	const_cast<Fixed&>(y) = point.getY();
 	return (*this);
 }
 
